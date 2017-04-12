@@ -17,7 +17,7 @@ use strict;
 use DBI;
 use Getopt::Long;
 
-my ($db_type, $db, $host, $user, $pass) = ("mysql", "seqdb_demo", "localhost", "seq_user", "seq_password");
+my ($db_type, $db, $host, $user, $pass) = ("mysql", "seqdb_demo", "localhost", "seqdb_writer", "writer_pass");
 my ($do_load, $DOFTP, $taxdir, $clean_up) = ( 1, 0, "",0);
 
 GetOptions("db|database=s" => \$db,

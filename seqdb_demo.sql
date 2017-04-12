@@ -1,4 +1,6 @@
-
+--
+-- Basic Protocol 1 -- declare tables in seqdb_demo
+--
 DROP TABLE IF EXISTS annot;
 CREATE TABLE annot (
   prot_id int(10) unsigned NOT NULL DEFAULT '0',
