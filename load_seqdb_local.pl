@@ -230,6 +230,6 @@ sub load_db {
   }
   else {
     $ENV{MYSQL_PW}=$password;
-    system(qq(myql $host -u $user -p$password $db < load_seqdb_local.sql));
+    system(qq(mysql $host -u $user -p$password $db < load_seqdb_local.sql));
   }
 }
