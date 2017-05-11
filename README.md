@@ -18,11 +18,12 @@ SQL scripts | description
 `human.sql` | produce a set of human Uniprot sequences in FASTA format
 `mammalia_seq.sql` | produce a set of mammalian Uniprot sequences in FASTA format from `seqdb_demo`
 `mammalia_acc.sql` | produce a set of accessions for mammalian Uniprot sequences from `seqdb_demo`
+`` |
 `create_search_demo.sql` | create the `search_demo` database and assign user permissions
 `search_demo.sql` | initialize the tables in `search_demo`
 `ecoli_v_human_hits.sql` | report best scores between E. coli and human sequences using `search_demo`
-`ecoli_v_human_hits.sql` | build a temporary table listing the `query_id` and kingdom `taxon_id`
-`ecoli_v_qfo_kingdom.sql` | summarize hits between E. coli queries and sequences in `qfo_demo`
+`ecoli_v_qfo_kingdom.sql` | build a temporary table listing the `query_id` and kingdom `taxon_id`
+`ecoli_qfo_kingdom_summ.sql` | summarize hits between E. coli queries and sequences in `qfo_demo`
 
 William R Pearson
 wrp@virginia.edu
