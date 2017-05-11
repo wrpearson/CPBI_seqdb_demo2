@@ -21,7 +21,7 @@ use vars qw( $query_id $port);
 
 my $hostname = `hostname`;
 
-my ($db_type, $db, $host, $user, $pass) = ("mysql", "search_demo", "localhost", "seq_user", "seq_password");
+my ($db_type, $db, $host, $user, $pass) = ("mysql", "search_demo", "localhost", "seqdb_writer", "writer_pass");
 
 my $debug = 0;
 

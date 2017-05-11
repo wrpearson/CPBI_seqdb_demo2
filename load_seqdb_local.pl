@@ -7,7 +7,7 @@ use strict;
 use Getopt::Long;
 
 my ($do_load, $load_only, $do_log, $log_inc) = (0,0,0,2000000);
-my ($db_type, $db, $host, $user, $password) = ("mysql", "seqdb_demo", "localhost", "seq_user", "seq_password");
+my ($db_type, $db, $host, $user, $password) = ("mysql", "seqdb_demo", "localhost", "seqdb_writer", "writer_pass");
 
 print STDERR "#",join(" ",($0,@ARGV)),"\n";
 

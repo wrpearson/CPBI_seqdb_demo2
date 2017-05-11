@@ -7,7 +7,7 @@ use strict;
 # the NCBI /pub/taxonomy/taxdump.tar.gz file to populate the
 # seqdb_demo "taxon_name" and "taxon" tables.
 #
-# usage -- load_taxonomy_local.pl --user seq_user --pass seq_password --host localhost --DOFTP 0 --do_load --taxdir /slib/taxonomy
+# usage -- load_taxonomy_local.pl --user seqdb_writer --pass writer_pass --host localhost --DOFTP 0 --do_load --taxdir /slib/taxonomy
 #
 # --DOFTP downloads the files necessary to --taxdir before extracting
 #         the names.dmp and nodes.dmp files
