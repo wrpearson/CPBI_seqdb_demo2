@@ -14,7 +14,7 @@ SQL scripts | description
 `create_seqdb_demo.sql` | create the `seqdb_demo` database and assign user permissions
 `seqdb_demo.sql` | initialize the tables in `seqdb_demo`
 `load_accession2taxid.sql` | associate accessions from the NCBI `nr` database with sequences in `seqdb_demo`
-`load_qfo_accession2taxid.sql` | associate accessions from the `qfo_demo` database with sequences in `seqdb_demo`
+`qfo_load_accession2taxid.sql` | associate accessions from the `qfo_demo` database with sequences in `seqdb_demo`
 `human.sql` | produce a set of human Uniprot sequences in FASTA format
 `mammalia_seq.sql` | produce a set of mammalian Uniprot sequences in FASTA format from `seqdb_demo`
 `mammalia_acc.sql` | produce a set of accessions for mammalian Uniprot sequences from `seqdb_demo`
