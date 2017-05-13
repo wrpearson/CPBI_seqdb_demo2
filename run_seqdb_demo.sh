@@ -15,12 +15,20 @@
 ## interaction to provide the root password
 
 ## download the sequence accession2taxid data:
-curl -O https://zenodo.org/record/377027/files/qfo_demo.gz
-curl -O https://zenodo.org/record/377027/files/qfo_pdb.accession2taxid.gz
-curl -O https://zenodo.org/record/377027/files/qfo_prot.accession2taxid.gz
+if [ ! -e qfo_demo ]; then
+  echo "downloading qfo_demo.gz" `date`
+  curl -O https://zenodo.org/record/377027/files/qfo_demo.gz
+fi
+
+if [ ! -e qfo_pdb_accession2taxid ]; then
+  echo "downloading qfo_pdb_accession2taxid.gz" `date`
+  curl -O https://zenodo.org/record/377027/files/qfo_pdb.accession2taxid.gz
+  curl -O https://zenodo.org/record/377027/files/qfo_prot.accession2taxid.gz
+fi
 
 ## download the seqdb_demo sql and scripts
-curl -O http://faculty.virginia.edu/wrpearson/CPBI_seqdb_demo2/CPBI_seqdb_demo.tar2.gz
+echo "downloading CPBI_seqdb_demo2.gz" `date`
+curl -O http://faculty.virginia.edu/wrpearson/CPBI_seqdb_demo2/CPBI_seqdb_demo2.tar.gz
 tar zxvf CPBI_seqdb_demo2.tar.gz
 
 ## create the database
@@ -32,7 +40,9 @@ mysql -u seqdb_writer -pwriter_pass seqdb_demo < seqdb_demo.sql
 mysql -useqdb_reader -preader_pass -e 'show tables; describe annot;' seqdb_demo
 
 # uncompress the sequence data and load the database
-gunzip ../qfo_demo.gz
+if [ -e ../qfo_demo.gz ]; then
+  gunzip ../qfo_demo.gz
+fi
 load_seqdb_local.pl --do_load ../qfo_demo
 # alternatively
 # load_seqdb_local.pl ../qfo_demo
@@ -41,10 +51,14 @@ load_seqdb_local.pl --do_load ../qfo_demo
 ## check that sequences are loaded
 mysql -useqdb_reader -preader_pass -e 'select count(*) from protein; select count(*) from annot; select * from protein where prot_id=790;' seqdb_demo
 
-
+echo "Download/load NCBI taxonomy" `date`
 # download the NCBI taxonomy data
-mkdir ../taxdata
-load_taxonomy_local.pl --do_load --DOFTP ../taxdata
+if [ ! -d ../taxdata || ! -e names.dmp ] ; then
+  mkdir ../taxdata
+  load_taxonomy_local.pl --do_load --DOFTP ../taxdata
+else
+  load_taxonomy_local.pl --do_load ../taxdata
+fi
 
 # check that the taxonomy tables are loaded
 # (1,2) check for the number of taxa, and list human taxon_name's
