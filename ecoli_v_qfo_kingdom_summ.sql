@@ -1,6 +1,7 @@
 --
 -- this file requires that the temporary table "temp_results" exists
---
+-- first "source ecoli_v_qfo_kingdom.sql;"
+-- 
 DROP TABLE IF EXISTS kingdom_counts;
 CREATE TEMPORARY TABLE kingdom_counts (
   query_id INT(10) UNSIGNED PRIMARY KEY,

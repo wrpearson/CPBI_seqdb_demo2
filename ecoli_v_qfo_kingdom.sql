@@ -1,3 +1,6 @@
+-- SQL to build temporary table associating query_id's with the taxon_id's of their hits
+-- this file must be "sourced" before running ecoli_qfo_kingdom_summ.sql
+
 DROP TABLE if exists temp_results;
 CREATE TEMPORARY TABLE temp_results (
   query_id INT UNSIGNED NOT NULL DEFAULT 0, 
@@ -23,3 +26,11 @@ WHERE  kingdom_name.name IN ('Bacteria', 'Eukaryota', 'Archaea')
   AND  expect < 1e-6
   AND  tag='ecoli_v_qfo_bp';
 
+-- summarize results
+
+set sql_mode='';
+SELECT taxon_id, name, count(query_id) as s_cnt, count(distinct(query_id)) as q_cnt
+ FROM  temp_results
+ JOIN  seqdb_demo.taxon_name USING(taxon_id)
+WHERE  class='scientific name'
+GROUP BY name;
