@@ -20,7 +20,6 @@ SQL scripts | description
 `mammalia_seq.sql` | produce a set of mammalian Uniprot sequences in FASTA format from `seqdb_demo`
 `mammalia_acc.sql` | produce a set of accessions for mammalian Uniprot sequences from `seqdb_demo`
 `ecoli_seq.sql` | produce a set of E. coli Uniprot sequences in FASTA format
-------------| -----------
 `create_search_demo.sql` | create the `search_demo` database and assign user permissions
 `search_demo.sql` | initialize the tables in `search_demo`
 `ecoli_v_human_shared.sql` | report counts of E. coli sequences in human, and vice-versa, using `search_demo`
