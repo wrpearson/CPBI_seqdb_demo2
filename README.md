@@ -27,5 +27,10 @@ SQL scripts | description
 `ecoli_v_qfo_kingdom.sql` | build a temporary table listing the `query_id` and kingdom `taxon_id`
 `ecoli_v_qfo_kingdom_summ.sql` | summarize hits between E. coli queries and sequences in `qfo_demo`
 
+In addition, the `run_seqdb_demo.sh` script is provided, which
+exercises all the steps outlined in Unit 9.4.  However, this script
+*must* be downloaded before the CPBI_seqdb_demo2 package, because it
+downloads the package.
+
 William R Pearson
 wrp@virginia.edu
