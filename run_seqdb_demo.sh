@@ -53,7 +53,7 @@ mysql -useqdb_reader -preader_pass -e 'select count(*) from protein; select coun
 
 echo "Download/load NCBI taxonomy" `date`
 # download the NCBI taxonomy data
-if [ ! -d ../taxdata || ! -e names.dmp ] ; then
+if [ ! -d ../taxdata ] || [ ! -e names.dmp ] ; then
   mkdir ../taxdata
   load_taxonomy_local.pl --do_load --DOFTP ../taxdata
 else
