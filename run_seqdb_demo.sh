@@ -3,13 +3,16 @@
 ################
 ## this is a sample script that tests most of the instructions in:
 ##
-## "Using Relational Databases for Improved Sequence Similarity Searching and Large-Scale Genomic Analyses"
-## Current Protocols in Bioinformatics, Unit 9.4
+## "Using Relational Databases for Improved Sequence Similarity
+## Searching and Large-Scale Genomic Analyses" Current Protocols in
+## Bioinformatics, Unit 9.4, 2017
 ##
-## This script assumes it is being run in a new, empty directory, that will hold the sequence databases
-## and the seqdb_demo/ scripts in the "seqdb_demo/" subdirectory
+## This script assumes it is being run in a new, empty directory, that
+## will hold the sequence databases and the seqdb_demo/ scripts in the
+## "seqdb_demo/" subdirectory
 ##
-## In addition, the two mysql commands run as "-u root" will not work, because the root password is not provided
+## In addition, the two mysql commands run as "-u root" require
+## interaction to provide the root password
 
 ## download the sequence accession2taxid data:
 curl -O https://zenodo.org/record/377027/files/qfo_demo.gz
@@ -17,8 +20,8 @@ curl -O https://zenodo.org/record/377027/files/qfo_pdb.accession2taxid.gz
 curl -O https://zenodo.org/record/377027/files/qfo_prot.accession2taxid.gz
 
 ## download the seqdb_demo sql and scripts
-curl -O http://faculty.virginia.edu/wrpearson/CPBI_seqdb_demo2/seqdb_demo.tar.gz
-tar zxvf seqdb_demo.tar.gz
+curl -O http://faculty.virginia.edu/wrpearson/CPBI_seqdb_demo2/CPBI_seqdb_demo.tar2.gz
+tar zxvf CPBI_seqdb_demo2.tar.gz
 
 ## create the database
 cd seqdb_demo
