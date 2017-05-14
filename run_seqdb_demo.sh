@@ -63,8 +63,6 @@ fi
 # check that the taxonomy tables are loaded
 # (1,2) check for the number of taxa, and list human taxon_name's
 mysql -useqdb_reader -preader_pass -e 'select count(*) from taxon; select * from taxon_name where taxon_id=9606;' seqdb_demo
-# (2) list sequence information on a protein
-mysql -useqdb_reader -preader_pass -e 'select db, acc, taxon_id, descr from annot where prot_id=790;' seqdb_demo
 
 ## return to initial directory so that the qfo_prot_accession2taxid
 ## and qfo_pdb_accession2taxid files, which map taxon_id's to
@@ -72,7 +70,9 @@ mysql -useqdb_reader -preader_pass -e 'select db, acc, taxon_id, descr from anno
 cd ..
 mysql -u seqdb_writer -pwriter_pass seqdb_demo < seqdb_demo/qfo_load_accession2taxid.sql
 
-# return to seqdb_demo to extract human sequences
+# list sequence information on a protein
+mysql -useqdb_reader -preader_pass -e 'select db, acc, taxon_id, descr from annot where prot_id=790;' seqdb_demo
+
 cd seqdb_demo
 mysql -rN -useqdb_reader -preader_pass seqdb_demo < human.sql > human.fasta
 
