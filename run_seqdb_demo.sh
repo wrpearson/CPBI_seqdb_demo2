@@ -74,7 +74,7 @@ mysql -u seqdb_writer -pwriter_pass seqdb_demo < seqdb_demo/qfo_load_accession2t
 mysql -useqdb_reader -preader_pass -e 'select db, acc, taxon_id, descr from annot where prot_id=790;' seqdb_demo
 
 cd seqdb_demo
-mysql -rN -useqdb_reader -preader_pass seqdb_demo < human.sql > human.fasta
+mysql -rN -useqdb_reader -preader_pass seqdb_demo < human_seq.sql > human.fasta
 
 # list the number of human sequences from each of the databases
 mysql -useqdb_reader -preader_pass -e 'select db, count(acc) as acc_cnt from annot where taxon_id=9606 group by db;' seqdb_demo
@@ -110,7 +110,7 @@ makeblastdb -in human.fasta -title human_up -out human_up -parse_seqids -dbtype 
 
 # extract seqdb_demo E. coli sequences for ecoli_v_human search
 echo `date`
-mysql -u seqdb_reader -preader_pass seqdb_demo < ecoli.sql > ecoli_up.fasta
+mysql -rN -u seqdb_reader -preader_pass seqdb_demo < ecoli_seq.sql > ecoli_up.fasta
 
 # compare ecoli_up.fasta to human_up blast database
 echo `date`
@@ -118,7 +118,7 @@ blastp -num_threads 8 -outfmt 7 -query ecoli_up.fasta -db human_up -evalue 1.0 >
 
 # load results of ecoli/human comparison
 echo `date`
-load_search_bl_tab.pl --tag ecoli_v_human_bp --algo blastp --doload ecoli_v_human.bp &
+load_search_bl_tab.pl --tag ecoli_v_human_bp --algo blastp --doload ecoli_v_human.bp
 
 # characterize ecoli_human homologs
 echo `date`
