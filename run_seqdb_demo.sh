@@ -132,4 +132,4 @@ load_search_bl_tab.pl --tag ecoli_v_qfo_bp --algo blastp --doload ecoli_v_qfo.bp
 
 ## do the final analysis of E. coli homologs in the three kingdoms
 echo `date`
-mysql -useqdb_writer -pwriter_pass -e 'source ecoli_v_qfo_kingdom.sql; source ecoli_qfo_kingdom_summ.sql;' search_demo
+mysql -useqdb_writer -pwriter_pass -e 'source ecoli_v_qfo_kingdom.sql; source ecoli_v_qfo_kingdom_summ.sql;' search_demo
